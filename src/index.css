@@ -4,3 +4,117 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
 }
+
+/* Star glow animation */
+.star-glow {
+  animation: starPulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 1.5px rgba(255, 193, 7, 0.3)) drop-shadow(0 0 3px rgba(255, 193, 7, 0.2));
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 1.5px rgba(255, 193, 7, 0.3)) drop-shadow(0 0 3px rgba(255, 193, 7, 0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 2px rgba(255, 193, 7, 0.4)) drop-shadow(0 0 4px rgba(255, 193, 7, 0.25));
+    transform: scale(1.02);
+  }
+}
+
+/* Wavy hover effect for badges */
+.badge-wavy {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.badge-wavy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+/* Specific styling for Frequent Buyer badge */
+.badge-wavy[style*="rgba(168, 85, 247, 0.15)"]:hover {
+  background-color: rgba(168, 85, 247, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+}
+
+.wavy-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.badge-wavy:hover .wavy-effect {
+  left: 100%;
+  animation: wavyShimmer 0.8s ease-in-out;
+}
+
+@keyframes wavyShimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+/* Additional wavy border animation on hover */
+.badge-wavy::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    rgba(168, 85, 247, 0.5),
+    rgba(139, 92, 246, 0.5),
+    rgba(168, 85, 247, 0.5)
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.badge-wavy:hover::before {
+  opacity: 1;
+  animation: wavyBorder 1.5s ease-in-out infinite;
+}
+
+/* Lighter border for transparent Frequent Buyer badge */
+.badge-wavy[style*="rgba(168, 85, 247, 0.15)"]::before {
+  background: linear-gradient(
+    45deg,
+    rgba(168, 85, 247, 0.3),
+    rgba(139, 92, 246, 0.3),
+    rgba(168, 85, 247, 0.3)
+  );
+}
+
+@keyframes wavyBorder {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

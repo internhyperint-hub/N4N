@@ -9,7 +9,7 @@ const ImageModal = ({ selectedImage, onClose, themeColor }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden shadow-2xl"
+        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] grid grid-cols-1 md:grid-cols-2 overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -20,16 +20,16 @@ const ImageModal = ({ selectedImage, onClose, themeColor }) => {
         </button>
 
         {/* Image */}
-        <div className="bg-gray-50 relative">
+        <div className="bg-gray-50 relative flex items-center justify-center min-h-[300px] max-h-[90vh] overflow-hidden">
           <img
             src={selectedImage.src}
             alt={`${selectedImage.review.name} review`}
-            className="w-full h-full object-cover"
+            className="w-full h-full max-h-[90vh] object-contain"
           />
         </div>
 
         {/* Review Details */}
-        <div className="p-8">
+        <div className="p-8 overflow-y-auto max-h-[90vh]">
           <div className="flex items-center gap-3 mb-4">
             <div 
               className="w-12 h-12 text-white flex items-center justify-center text-sm font-semibold uppercase rounded-full"

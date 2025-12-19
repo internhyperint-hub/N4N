@@ -1,3 +1,9 @@
+import image1 from '../assets/image 1.png';
+import image2 from '../assets/image 2.png';
+import image3 from '../assets/image 3.png';
+import image4 from '../assets/image 4.png';
+import image5 from '../assets/image 5.png';
+
 export const productReviews = [
   {
     name: 'Priya S.',
@@ -7,9 +13,11 @@ export const productReviews = [
     title: 'Amazing results!',
     item: 'Face Wash + Sunscreen',
     text: 'This combo works perfectly for my daily routine. The face wash removes all impurities and the sunscreen gives great protection without feeling greasy.',
-    images: ['https://nature4nature.in/cdn/shop/files/PackOf2_N4N-09.jpg?v=1734069020&width=300'],
+    images: [image1, 'https://nature4nature.in/cdn/shop/files/PackOf2_N4N-09.jpg?v=1734069020&width=300'],
     rating: 5,
-    verified: true
+    verified: true,
+    helpfulLikes: 5,
+    brandLiked: true
   },
   {
     name: 'Ananya G.',
@@ -19,9 +27,12 @@ export const productReviews = [
     title: 'Good product',
     item: 'Face Wash + Sunscreen',
     text: 'Fast delivery. Product quality is good. Face wash has natural ingredients and sunscreen provides decent protection.',
-    images: [],
+    images: [image2],
     rating: 4,
-    verified: false
+    verified: false,
+    frequentBuyer: false,
+    recentReviewer: false,
+    helpfulLikes: 1
   },
   {
     name: 'Meera P.',
@@ -31,9 +42,12 @@ export const productReviews = [
     title: 'Love the natural ingredients!',
     item: 'Face Wash + Sunscreen',
     text: 'Finally found products with natural ingredients that actually work! My skin feels so clean and protected. Will definitely repurchase.',
-    images: ['https://nature4nature.in/cdn/shop/files/FaceWash-04_e9e5ea2a-0aad-4b4b-8287-c9a57705ec4d.png?v=1734069020&width=300'],
+    images: [image3, 'https://nature4nature.in/cdn/shop/files/FaceWash-04_e9e5ea2a-0aad-4b4b-8287-c9a57705ec4d.png?v=1734069020&width=300'],
     rating: 5,
-    verified: true
+    verified: true,
+    frequentBuyer: true,
+    helpfulLikes: 8,
+    brandLiked: true
   },
   {
     name: 'Kavya R.',
@@ -43,9 +57,11 @@ export const productReviews = [
     title: 'Average experience',
     item: 'Face Wash + Sunscreen',
     text: 'Products are okay but not exceptional. Expected better results for the price point.',
-    images: [],
+    images: [image4],
     rating: 3,
-    verified: true
+    verified: true,
+    recentReviewer: true,
+    helpfulLikes: 2
   },
   {
     name: 'Riya S.',
@@ -55,9 +71,11 @@ export const productReviews = [
     title: 'Excellent for sensitive skin',
     item: 'Face Wash + Sunscreen',
     text: 'Perfect for my sensitive skin! No irritation at all. The face wash is gentle yet effective, and sunscreen blends beautifully.',
-    images: ['https://nature4nature.in/cdn/shop/files/Suncreen-04.png?v=1734069020&width=300'],
+    images: [image5, 'https://nature4nature.in/cdn/shop/files/Suncreen-04.png?v=1734069020&width=300'],
     rating: 5,
-    verified: true
+    verified: true,
+    helpfulLikes: 3,
+    brandLiked: false
   }
 ];
 
@@ -72,7 +90,9 @@ export const brandReviews = [
     text: 'Love the brand commitment to natural ingredients. All products I have tried so far have been excellent quality.',
     images: [],
     rating: 5,
-    verified: true
+    verified: true,
+    helpfulLikes: 2,
+    brandLiked: true
   },
   {
     name: 'Neha A.',
@@ -84,7 +104,10 @@ export const brandReviews = [
     text: 'Appreciate the focus on eco-friendly packaging and natural formulations. Keep up the good work!',
     images: [],
     rating: 4,
-    verified: false
+    verified: false,
+    recentReviewer: true,
+    helpfulLikes: 4,
+    brandLiked: true
   },
   {
     name: 'Sakshi G.',
@@ -96,7 +119,9 @@ export const brandReviews = [
     text: 'Amazing quality across all products. Customer service is also very responsive. Highly recommend Nature4Nature for anyone looking for natural skincare solutions.',
     images: [],
     rating: 5,
-    verified: true
+    verified: true,
+    helpfulLikes: 7,
+    brandLiked: true
   }
 ];
 

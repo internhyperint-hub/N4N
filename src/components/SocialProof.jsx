@@ -6,30 +6,52 @@ const SocialProof = ({
   soldCount = 1440,
   timeframe = "this week" 
 }) => {
-  // Generate star display based on rating
+  // Generate star display based on rating with gradient and glow
   const renderStars = (rating) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     
     for (let i = 0; i < 5; i++) {
-      if (i < fullStars) {
+      const isFilled = i < fullStars;
+      const isHalf = i === fullStars && hasHalfStar;
+      const uniqueId = `socialStar-${i}-${Math.random().toString(36).substr(2, 9)}`;
+      
+      if (isFilled || isHalf) {
         stars.push(
-          <span key={i} className="star full text-[#1b7a68]">
-            ★ 
-          </span>
-        );
-      } else if (i === fullStars && hasHalfStar) {
-        stars.push(
-          <span key={i} className="star half text-[#1b7a68]">
-            ★
-          </span>
+          <svg
+            key={i}
+            className="star-glow transition-all duration-300"
+            style={{ width: '18px', height: '18px' }}
+            viewBox="0 0 20 20"
+          >
+            <defs>
+              <linearGradient id={uniqueId} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFD700" stopOpacity="1" />
+                <stop offset="50%" stopColor="#FFA500" stopOpacity="1" />
+                <stop offset="100%" stopColor="#FF8C00" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              fill={isHalf ? `url(#${uniqueId})` : `url(#${uniqueId})`}
+              opacity={isHalf ? 0.5 : 1}
+            />
+          </svg>
         );
       } else {
         stars.push(
-          <span key={i} className="star empty text-[#1b7a68]">
-            ☆
-          </span>
+          <svg
+            key={i}
+            className="transition-all duration-300"
+            style={{ width: '18px', height: '18px' }}
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              fill="#d1d5db"
+            />
+          </svg>
         );
       }
     }
@@ -93,29 +115,8 @@ const SocialProof = ({
           margin-right: 4px;
         }
 
-        .star {
-          font-size: 18px;
-          transition: all 0.2s ease;
-          filter: drop-shadow(0 1px 2px rgba(255, 165, 0, 0.3));
-        }
 
-        .star.full {
-          animation: twinkle 2s ease-in-out infinite;
-          animation-delay: calc(var(--star-index, 0) * 0.1s);
-        }
-
-        .star.empty {
-          color: #e0e0e0;
-          font-size: 18px;
-        }
-
-        .star.half {
-        
-        
-        }
-
-      
-
+    
         .rating-value {
           font-size: 20px;
           font-weight: 700;

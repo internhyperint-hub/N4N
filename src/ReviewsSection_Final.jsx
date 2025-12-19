@@ -4,7 +4,6 @@ import AIInsights from './components/AIInsights';
 import RatingBreakdown from './components/RatingBreakdown';
 import CustomerPhotos from './components/CustomerPhotos';
 import TabSection from './components/TabSection';
-import ImageSection from './components/ImageSection';
 import ImageModal from './components/ImageModal';
 
 const ReviewsSection = () => {
@@ -95,16 +94,6 @@ const ReviewsSection = () => {
             instagramPosts={instagramPosts}
             productReviews={productReviews}
           />
-   {/* Customer Photos Section */}
-
-
-          {/* Image Section - Below Tab Section */}
-          {/* <div className="mt-8">
-            <ImageSection 
-              productReviews={productReviews}
-              onImageClick={setSelectedImage}
-            />
-          </div> */}
         </div>
       </div>
 
