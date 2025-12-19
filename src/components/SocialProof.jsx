@@ -15,19 +15,19 @@ const SocialProof = ({
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(
-          <span key={i} className="star full text-yellow-500">
+          <span key={i} className="star full text-[#1b7a68]">
             ★ 
           </span>
         );
       } else if (i === fullStars && hasHalfStar) {
         stars.push(
-          <span key={i} className="star half">
+          <span key={i} className="star half text-[#1b7a68]">
             ★
           </span>
         );
       } else {
         stars.push(
-          <span key={i} className="star empty">
+          <span key={i} className="star empty text-[#1b7a68]">
             ☆
           </span>
         );
@@ -110,22 +110,11 @@ const SocialProof = ({
         }
 
         .star.half {
-          background: linear-gradient(90deg, #ffa500 50%, #e0e0e0 50%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+        
+        
         }
 
-        @keyframes twinkle {
-          0%, 100% { 
-            transform: scale(1);
-            filter: drop-shadow(0 1px 2px rgba(255, 165, 0, 0.3));
-          }
-          50% { 
-            transform: scale(1.1);
-            filter: drop-shadow(0 2px 4px rgba(255, 165, 0, 0.5));
-          }
-        }
+      
 
         .rating-value {
           font-size: 20px;
